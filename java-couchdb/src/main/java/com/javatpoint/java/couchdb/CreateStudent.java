@@ -26,7 +26,8 @@ CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
 CouchDbConnector db = dbInstance.createConnector("person", true);//new StdCouchDbConnector("javatpoint", dbInstance);
 Student s = new Student();
 s.setFirstname("aoifes");
-s.setSurname("fUCK");
+s.setSurname("sayers");
+s.setEmail("aoifesayers@gmail.com");
 db.create((s));
 
 
