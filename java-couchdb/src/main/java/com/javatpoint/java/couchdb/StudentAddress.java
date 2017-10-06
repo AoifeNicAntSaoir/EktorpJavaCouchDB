@@ -5,72 +5,32 @@
  */
 package com.javatpoint.java.couchdb;
 
-import java.util.List;
-import org.ektorp.support.CouchDbDocument;
-import org.ektorp.support.*;
 import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  *
  * @author Aoife Sayers
  */
-public class Student extends CouchDbDocument{
-  
-    private String firstname;
-    private String surname;
-    private String tNumber;
-    private String email;
-   // private StudentAddress address;
+public class StudentAddress {
     private String street;
     private String town;
     private String county;
     private String country;
     private String postcode;
-   
-     
-  
-         public Student()
-    {
-        
+
+    public StudentAddress(String street, String town, String county, 
+            String country, String postcode){
+        setStreet(street);
+        setTown(town);
+        setCounty(county);
+        setCountry(country);
+        setPostcode(postcode);
     }
-         
+    public StudentAddress(){
     
-       
-    @JsonProperty("firstname")    
-    public String getFirstname(){
-            return firstname;
-        }
-    
-    public void setFirstname(String firstname){
-        this.firstname = firstname;
-    }
-    @JsonProperty("surname")
-     public String getSurname(){
-        return surname;
-    }
-     
-    public void setSurname(String surname){
-        this.surname = surname;
     }
     
-    @JsonProperty("tnumber")
-     public String getTnumber(){
-        return tNumber;
-    }
-     
-    public void settNumber(String tNumber){
-           this.tNumber = tNumber;
-    }
-    
-    @JsonProperty("email")
-    public String getEmail(){
-        return email;
-    }
-    public void setEmail(String email){
-        this.email = email;
-    }
-  
-    
-     @JsonProperty("address.Street")  
+    @JsonProperty("address.Street")  
     public String getStreet() {
         return street;
     }
@@ -111,10 +71,4 @@ public class Student extends CouchDbDocument{
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
-    
-    
-    
-    
-    
-    
 }

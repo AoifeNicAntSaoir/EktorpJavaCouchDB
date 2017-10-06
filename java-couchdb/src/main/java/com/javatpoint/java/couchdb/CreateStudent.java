@@ -44,17 +44,5 @@ Student s1 = new Student("Fuck","Shit","T000000","fuckshit@mail");*/
 
 //db.create(s1);
 }
-public void addDoc(StudentRepository repo) {
-		// the new document id and age
-		// create a document for use in this example
-		Student doc = new Student("fuck","shit","fuck@shit","fuckfuckfuck");
-		
-		// add the doc to the database
-		System.out.println("Adding new document to database...");
-		repo.add(doc);
 
-		// neat method that returns a boolean on whether the id exists in the
-		// database
-		
-	}
 }  

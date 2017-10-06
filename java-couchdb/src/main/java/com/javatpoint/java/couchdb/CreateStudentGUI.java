@@ -8,6 +8,7 @@ package com.javatpoint.java.couchdb;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.ektorp.CouchDbConnector;
 import org.ektorp.CouchDbInstance;
 import org.ektorp.http.HttpClient;
@@ -157,29 +158,31 @@ public class CreateStudentGUI extends javax.swing.JFrame {
                     .url("http://localhost:5984")
                     .build();
             CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-CouchDbConnector db = dbInstance.createConnector("person", true);//new StdCouchDbConnector("javatpoint", dbInstance);
-Student s = new Student();
-s.setFirstname(txtname.getText());
-s.setSurname(txtsname.getText());
-s.setEmail(txtemail.getText());
-db.create((s));
-//CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-//--------------- Creating database----------------------------//
-//CouchDbConnector db = new StdCouchDbConnector("javatpoint", dbInstance);
-//db.createDatabaseIfNotExists();
+            CouchDbConnector db = dbInstance.createConnector("person", true);//new StdCouchDbConnector("javatpoint", dbInstance);
+            Student s = new Student();
+            s.setFirstname(txtname.getText());
+            s.setSurname(txtsname.getText());
+            s.setEmail(txtemail.getText());
+            s.settNumber(txttnum.getText());
+            s.setStreet("LAck");
+            s.setTown("Inch");
+            try {
+            db.create((s));
+            JOptionPane.showMessageDialog(null, "Student Created in the system", "Student created", JOptionPane.PLAIN_MESSAGE);
+            txtname.setText("");
+            txtsname.setText("");
+            txtemail.setText("");
+            txttnum.setText("");
+            }
+            catch(Exception ex)
+            {
+                String exMessage = ex.getMessage();
+                JOptionPane.showMessageDialog(null, exMessage, "Error occured", JOptionPane.WARNING_MESSAGE);
+            }
         } catch (MalformedURLException ex) {
             Logger.getLogger(CreateStudentGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-//--------------- Creating Document----------------------------//  
-
-CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-CouchDbConnector db = dbInstance.createConnector("person", true);//new StdCouchDbConnector("javatpoint", dbInstance);
-Student s = new Student();
-s.setFirstname("aoifes");
-s.setSurname("sayers");
-s.setEmail("aoifesayers@gmail.com");
-db.create((s));
 
 
     }//GEN-LAST:event_btncreateActionPerformed
