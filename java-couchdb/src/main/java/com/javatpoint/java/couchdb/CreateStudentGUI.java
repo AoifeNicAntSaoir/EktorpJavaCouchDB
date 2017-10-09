@@ -6,6 +6,8 @@
 package com.javatpoint.java.couchdb;
 
 import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -46,6 +48,15 @@ public class CreateStudentGUI extends javax.swing.JFrame {
         txttnum = new javax.swing.JTextField();
         txtemail = new javax.swing.JTextField();
         btncreate = new javax.swing.JButton();
+        lblAddress = new javax.swing.JLabel();
+        txtStreet = new javax.swing.JTextField();
+        lblAddress1 = new javax.swing.JLabel();
+        lblAddress2 = new javax.swing.JLabel();
+        txtCountry = new javax.swing.JTextField();
+        lblAddress3 = new javax.swing.JLabel();
+        txtTown = new javax.swing.JTextField();
+        lblAddress4 = new javax.swing.JLabel();
+        txtCounty = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +87,44 @@ public class CreateStudentGUI extends javax.swing.JFrame {
             }
         });
 
+        lblAddress.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblAddress.setText("Address:");
+
+        txtStreet.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+
+        lblAddress1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblAddress1.setText("Country:");
+
+        lblAddress2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblAddress2.setText("Street:");
+
+        txtCountry.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        txtCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCountryActionPerformed(evt);
+            }
+        });
+
+        lblAddress3.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblAddress3.setText("Town:");
+
+        txtTown.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        txtTown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTownActionPerformed(evt);
+            }
+        });
+
+        lblAddress4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblAddress4.setText("County:");
+
+        txtCounty.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        txtCounty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCountyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,69 +132,95 @@ public class CreateStudentGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
+                        .addGap(180, 180, 180)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTnum)
-                                .addGap(86, 86, 86)
-                                .addComponent(txttnum, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblemail)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblsname)
-                                .addGap(74, 74, 74)
-                                .addComponent(txtsname, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblsname)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTnum))
+                            .addComponent(lblemail))
+                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txttnum, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtsname, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(455, 455, 455)
+                        .addGap(430, 430, 430)
                         .addComponent(btncreate)))
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCounty, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTown, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(307, 307, 307))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(191, 191, 191)
                     .addComponent(lblfname1)
                     .addContainerGap(696, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(361, 361, 361)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(367, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(372, Short.MAX_VALUE)
-                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(356, 356, 356)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(148, 148, 148)
+                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblsname)
                     .addComponent(txtsname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(lblemail)
-                .addGap(36, 36, 36)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblemail)
+                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTnum)
                     .addComponent(txttnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
+                .addGap(27, 27, 27)
+                .addComponent(lblAddress)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCounty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddress1)
+                    .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(btncreate)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addGap(64, 64, 64))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(150, 150, 150)
                     .addComponent(lblfname1)
                     .addContainerGap(604, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(153, 153, 153)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(595, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(297, 297, 297)
-                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(451, Short.MAX_VALUE)))
         );
+
+        txtStreet.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,8 +239,9 @@ public class CreateStudentGUI extends javax.swing.JFrame {
             s.setSurname(txtsname.getText());
             s.setEmail(txtemail.getText());
             s.settNumber(txttnum.getText());
-            s.setStreet("LAck");
-            s.setTown("Inch");
+            Map<String,StudentAddress> addr = new HashMap();
+            addr.put("address", new StudentAddress(txtStreet.getText(),txtTown.getText(), txtCounty.getText(), txtCountry.getText()));
+           s.setAddress(addr);
             try {
             db.create((s));
             JOptionPane.showMessageDialog(null, "Student Created in the system", "Student created", JOptionPane.PLAIN_MESSAGE);
@@ -173,6 +249,10 @@ public class CreateStudentGUI extends javax.swing.JFrame {
             txtsname.setText("");
             txtemail.setText("");
             txttnum.setText("");
+            txtStreet.setText("");
+            txtTown.setText("");
+            txtCounty.setText("");
+            txtCountry.setText("");
             }
             catch(Exception ex)
             {
@@ -186,6 +266,18 @@ public class CreateStudentGUI extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btncreateActionPerformed
+
+    private void txtCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCountryActionPerformed
+
+    private void txtTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTownActionPerformed
+
+    private void txtCountyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCountyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCountyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,10 +317,19 @@ public class CreateStudentGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncreate;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblAddress1;
+    private javax.swing.JLabel lblAddress2;
+    private javax.swing.JLabel lblAddress3;
+    private javax.swing.JLabel lblAddress4;
     private javax.swing.JLabel lblTnum;
     private javax.swing.JLabel lblemail;
     private javax.swing.JLabel lblfname1;
     private javax.swing.JLabel lblsname;
+    private javax.swing.JTextField txtCountry;
+    private javax.swing.JTextField txtCounty;
+    private javax.swing.JTextField txtStreet;
+    private javax.swing.JTextField txtTown;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtsname;

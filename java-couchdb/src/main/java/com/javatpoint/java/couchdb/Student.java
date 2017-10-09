@@ -6,6 +6,7 @@
 package com.javatpoint.java.couchdb;
 
 import java.util.List;
+import java.util.Map;
 import org.ektorp.support.CouchDbDocument;
 import org.ektorp.support.*;
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -19,20 +20,7 @@ public class Student extends CouchDbDocument{
     private String surname;
     private String tNumber;
     private String email;
-   // private StudentAddress address;
-    private String street;
-    private String town;
-    private String county;
-    private String country;
-    private String postcode;
-   
-     
-  
-         public Student()
-    {
-        
-    }
-         
+    private Map<String, StudentAddress> address;     
     
        
     @JsonProperty("firstname")    
@@ -67,54 +55,13 @@ public class Student extends CouchDbDocument{
     }
     public void setEmail(String email){
         this.email = email;
-    }
-  
+    }   
     
-     @JsonProperty("address.Street")  
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-    @JsonProperty("address.Town") 
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
-    @JsonProperty("address.County") 
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-    @JsonProperty("address.Country") 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    @JsonProperty("address.Postcode") 
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-    
-    
-    
-    
-    
-    
+    public Map<String, StudentAddress> getAddress() {
+                return address;
+        }
+        
+        public void setAddress(Map<String, StudentAddress> address) {
+                this.address = address;
+        }
 }

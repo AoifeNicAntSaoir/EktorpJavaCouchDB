@@ -5,6 +5,7 @@
  */
 package com.javatpoint.java.couchdb;
 
+import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
@@ -16,21 +17,17 @@ public class StudentAddress {
     private String town;
     private String county;
     private String country;
-    private String postcode;
+    
+   
 
-    public StudentAddress(String street, String town, String county, 
-            String country, String postcode){
+    public StudentAddress(@JsonProperty("address")String street, String town, String county, String country)
+    {
         setStreet(street);
         setTown(town);
         setCounty(county);
         setCountry(country);
-        setPostcode(postcode);
     }
-    public StudentAddress(){
-    
-    }
-    
-    @JsonProperty("address.Street")  
+            
     public String getStreet() {
         return street;
     }
@@ -38,7 +35,7 @@ public class StudentAddress {
     public void setStreet(String street) {
         this.street = street;
     }
-    @JsonProperty("address.Town") 
+
     public String getTown() {
         return town;
     }
@@ -46,7 +43,7 @@ public class StudentAddress {
     public void setTown(String town) {
         this.town = town;
     }
-    @JsonProperty("address.County") 
+
     public String getCounty() {
         return county;
     }
@@ -54,21 +51,15 @@ public class StudentAddress {
     public void setCounty(String county) {
         this.county = county;
     }
-    @JsonProperty("address.Country") 
+
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountry(String ountry) {
+        this.country = ountry;
     }
-
-    @JsonProperty("address.Postcode") 
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
+    
+    
+    
 }

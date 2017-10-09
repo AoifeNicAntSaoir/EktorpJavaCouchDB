@@ -28,6 +28,8 @@ Student s = new Student();
 s.setFirstname("aoifes");
 s.setSurname("sayers");
 s.setEmail("aoifesayers@gmail.com");
+
+
 db.create((s));
 
 
