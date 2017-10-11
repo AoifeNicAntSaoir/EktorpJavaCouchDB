@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.ektorp.CouchDbConnector;
 import org.ektorp.CouchDbInstance;
 import org.ektorp.http.HttpClient;
@@ -224,27 +225,34 @@ public class CreateStudentGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //When the button is clicked
     private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
         // TODO add your handling code here:
         HttpClient httpClient;
         try {
+            //Connection details
             httpClient = new StdHttpClient.Builder()  
                     .url("http://localhost:5984")
                     .build();
+            //Connection to CouchDB server
             CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-            CouchDbConnector db = dbInstance.createConnector("person", true);//new StdCouchDbConnector("javatpoint", dbInstance);
+            //Connector to person database - creates database if it doesn't exist
+            CouchDbConnector db = dbInstance.createConnector("person", true);
+            //Creating a student object & setting the properties
             Student s = new Student();
             s.setFirstname(txtname.getText());
             s.setSurname(txtsname.getText());
             s.setEmail(txtemail.getText());
             s.settNumber(txttnum.getText());
+            //For the nested Address Object 
             Map<String,StudentAddress> addr = new HashMap();
             addr.put("address", new StudentAddress(txtStreet.getText(),txtTown.getText(), txtCounty.getText(), txtCountry.getText()));
-           s.setAddress(addr);
+           s.setAddress(addr);          
             try {
+            //Creating/Inserting
             db.create((s));
             JOptionPane.showMessageDialog(null, "Student Created in the system", "Student created", JOptionPane.PLAIN_MESSAGE);
+            //Clearing the UIF after insert successful
             txtname.setText("");
             txtsname.setText("");
             txtemail.setText("");
@@ -262,9 +270,6 @@ public class CreateStudentGUI extends javax.swing.JFrame {
         } catch (MalformedURLException ex) {
             Logger.getLogger(CreateStudentGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-
     }//GEN-LAST:event_btncreateActionPerformed
 
     private void txtCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCountryActionPerformed

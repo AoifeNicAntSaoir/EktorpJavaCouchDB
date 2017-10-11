@@ -1,5 +1,6 @@
 package com.javatpoint.java.couchdb;  
 import java.net.MalformedURLException;  
+import java.util.List;
 import org.ektorp.CouchDbConnector;  
 import org.ektorp.CouchDbInstance;  
 import org.ektorp.http.HttpClient;  
@@ -29,8 +30,15 @@ s.setFirstname("aoifes");
 s.setSurname("sayers");
 s.setEmail("aoifesayers@gmail.com");
 
+ List<String> listOfIds = db.getAllDocIds();
+ System.out.println(listOfIds);
+ System.out.println(listOfIds.get(0));
+ String shit = listOfIds.get(0);
+ Student stud = db.get(Student.class, shit);
+ System.out.println(stud.getTnumber());
 
 db.create((s));
+
 
 
 HttpClient httpClient1 = new StdHttpClient.Builder()  

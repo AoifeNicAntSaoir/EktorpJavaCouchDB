@@ -20,7 +20,7 @@ public class StudentAddress {
     
    
 
-    public StudentAddress(@JsonProperty("address")String street, String town, String county, String country)
+    public StudentAddress(String street, String town, String county, String country)
     {
         setStreet(street);
         setTown(town);

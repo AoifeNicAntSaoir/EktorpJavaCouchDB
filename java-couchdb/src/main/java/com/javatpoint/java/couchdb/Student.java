@@ -5,11 +5,13 @@
  */
 package com.javatpoint.java.couchdb;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.ektorp.support.CouchDbDocument;
 import org.ektorp.support.*;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.ektorp.ViewResult;
 /**
  *
  * @author Aoife Sayers
@@ -21,6 +23,7 @@ public class Student extends CouchDbDocument{
     private String tNumber;
     private String email;
     private Map<String, StudentAddress> address;     
+    public String[] modules;
     
        
     @JsonProperty("firstname")    
@@ -60,8 +63,14 @@ public class Student extends CouchDbDocument{
     public Map<String, StudentAddress> getAddress() {
                 return address;
         }
-        
-        public void setAddress(Map<String, StudentAddress> address) {
+        @JsonProperty("address")
+    public void setAddress(Map<String, StudentAddress> address) {
                 this.address = address;
         }
+
+    public String[] getModules() {
+        return modules;
+    }
+
+
 }

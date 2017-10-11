@@ -26,9 +26,8 @@ public class UpdateStudent {
 CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
 CouchDbConnector db = new StdCouchDbConnector("person", dbInstance);
 
-db.createDatabaseIfNotExists();
 
-Student student = db.get(Student.class, "26f00c4b26daae75fa2448aff0002f36");
+Student student = db.get(Student.class, "5c1ed102c76c21a769c71a9266009440");
 student.setFirstname("blue");
 student.setSurname("dot");
 student.setEmail("bluedot@mail.com");
