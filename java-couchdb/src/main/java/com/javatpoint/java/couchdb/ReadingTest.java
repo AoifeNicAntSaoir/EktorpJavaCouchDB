@@ -44,8 +44,11 @@ ViewResult result = db.queryView(query);
 for (ViewResult.Row row : result.getRows()) {
     String keyValue = row.getKey();
     String stringValue = row.getValue();
-    System.out.println(row.getKey());
-    System.out.println(row.getValue());
+    
+    stringValue = stringValue.replace("{", " ");
+    stringValue = stringValue.replace("}", " ");   
+    
+    System.out.println("Tnumber: " + row.getKey() + stringValue);
 }
 
        
