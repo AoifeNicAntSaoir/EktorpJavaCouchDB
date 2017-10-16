@@ -30,12 +30,13 @@ public class ReadingStudents extends javax.swing.JFrame {
      */
     public ReadingStudents() throws IOException {
         initComponents();
+        //Iterates through list of tnumbers and adds to combo box
        for(String s: getdetails())
        {
         cboReadStudents.addItem(s);
        }
     }
-    
+    //Calls the allTnumbers view query & places them in a list
     public List<String> getdetails() throws MalformedURLException, IOException{
         List<String> queryListDetails = new ArrayList<>();
            HttpClient httpClient = new StdHttpClient.Builder()
@@ -66,24 +67,34 @@ public class ReadingStudents extends javax.swing.JFrame {
     private void initComponents() {
 
         cboReadStudents = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setText("Reading the Students into a ComboBox");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(cboReadStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 66, Short.MAX_VALUE))
+                    .addComponent(cboReadStudents, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(cboReadStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel1)
+                .addGap(57, 57, 57)
+                .addComponent(cboReadStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,5 +141,6 @@ public class ReadingStudents extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cboReadStudents;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

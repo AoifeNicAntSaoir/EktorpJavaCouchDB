@@ -17,8 +17,6 @@ public class StudentAddress {
     private String town;
     private String county;
     private String country;
-    
-   
 
     public StudentAddress(String street, String town, String county, String country)
     {
