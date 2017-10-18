@@ -26,16 +26,13 @@ public class UpdateStudent {
 CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
 CouchDbConnector db = new StdCouchDbConnector("person", dbInstance);
 
-Student s = new Student();
-s.setFirstname("Aife");
-db.update(s);
-// revision will be updated after update
-System.out.println(s.getRevision());
-/*student.setFirstname("blue");
+Student student = new Student();
+
+student.setFirstname("blue");
 student.setSurname("dot");
 student.setEmail("bluedot@mail.com");
-student.settNumber("t00170881");
-db.update(student);*/
+student.setTnumber("t00170881");
+db.update(student);
         
     }
 }

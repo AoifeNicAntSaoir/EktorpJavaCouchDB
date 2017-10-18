@@ -81,7 +81,7 @@ public class UpdateStudents extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Reading the Students into a ComboBox");
+        jLabel1.setText("Updating Students");
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton1.setText("Update Student");
@@ -101,7 +101,9 @@ public class UpdateStudents extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cboReadStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(202, 202, 202)
+                                .addComponent(jLabel1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -110,9 +112,9 @@ public class UpdateStudents extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
+                .addGap(40, 40, 40)
                 .addComponent(cboReadStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,7 +159,8 @@ public class UpdateStudents extends javax.swing.JFrame {
                  String county = JOptionPane.showInputDialog("Address 3\n Enter County");
                  String country = JOptionPane.showInputDialog("Address 1\n Enter country");
                     addr.put("address", new StudentAddress(street, town, county, country));
-                 s.setAddress(addr);          
+                 s.setAddress(addr); 
+                 JOptionPane.showMessageDialog(null,s.toString());
                  db.update(id);
                  
                  

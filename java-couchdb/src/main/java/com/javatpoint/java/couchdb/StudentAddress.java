@@ -58,6 +58,12 @@ public class StudentAddress {
         this.country = ountry;
     }
     
+    public String getAddress(){
+        return getStreet() + ", " +
+               getTown() + ", " +
+               getCounty() + ", " + 
+               getCountry();
+    }
     
     
 }
