@@ -243,7 +243,7 @@ public class CreateStudentGUI extends javax.swing.JFrame {
             s.setFirstname(txtname.getText());
             s.setSurname(txtsname.getText());
             s.setEmail(txtemail.getText());
-            s.settNumber(txttnum.getText());
+            s.setTnumber(txttnum.getText());
             //For the nested Address Object 
             Map<String,StudentAddress> addr = new HashMap();
             addr.put("address", new StudentAddress(txtStreet.getText(),txtTown.getText(), txtCounty.getText(), txtCountry.getText()));

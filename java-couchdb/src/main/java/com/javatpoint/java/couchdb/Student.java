@@ -48,7 +48,7 @@ public class Student extends CouchDbDocument{
         return tNumber;
     }
      
-    public void settNumber(String tNumber){
+    public void setTnumber(String tNumber){
            this.tNumber = tNumber;
     }
     
@@ -71,6 +71,14 @@ public class Student extends CouchDbDocument{
     public String[] getModules() {
         return modules;
     }
-
+    
+    public String toString(){
+        return "Firstname: " + getFirstname() + 
+                "Surname: " + getSurname() +
+                "Tnumber: " + getTnumber() + 
+                "Email: " + getEmail() +
+                "Address: " + getAddress();
+                
+    }
 
 }
